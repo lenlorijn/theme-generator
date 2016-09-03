@@ -13,5 +13,13 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Len\\ThemeGenerator\\": ""
+        }
+    }
 }

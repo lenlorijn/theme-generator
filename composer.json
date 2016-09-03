@@ -1,0 +1,17 @@
+{
+    "name": "len/theme-generator",
+    "description": "Generates themes for Magento 2",
+    "type": "magento2-module",
+    "require-dev": {
+        "twig/twig": "^1.24"
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Len Lorijn",
+            "email": "len.lorijn@mediact.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

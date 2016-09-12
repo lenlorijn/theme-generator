@@ -22,4 +22,20 @@ class Definition
         $this->vendor = $vendor;
         $this->name = $name;
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVendor()
+    {
+        return $this->vendor;
+    }
 }

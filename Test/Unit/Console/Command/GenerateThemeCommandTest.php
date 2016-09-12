@@ -35,4 +35,40 @@ class GenerateThemeCommandTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(Command::class , $this->command);
     }
+
+    public function testHasName()
+    {
+        $this->assertSame('generate:theme', $this->command->getName());
+    }
+
+    public function testHasDescription()
+    {
+        $this->assertEquals('Generates a base theme to get you started with themes', $this->command->getDescription());
+    }
+
+    public function testTakesRequiredVendorArgument()
+    {
+        $vendorArgument = $this->command->getDefinition()->getArgument('vendor');
+
+        $this->assertTrue($vendorArgument->isRequired());
+        $this->assertNotEmpty($vendorArgument->getDescription());
+    }
+
+    public function testTakesRequiredNameArgument()
+    {
+        $nameArgument = $this->command->getDefinition()->getArgument('name');
+        
+        $this->assertTrue($nameArgument->isRequired());
+        $this->assertNotEmpty($nameArgument->getDescription());
+    }
+
+    public function testPrintsSuccessMessage()
+    {
+        $this->mockInput->method('getArgument')->with('vendor')->willReturn('Len');
+        $this->mockInput->method('getArgument')->with('name')->willReturn('Butterflies');
+
+        $this->mockOutput->expects($this->once())->method('writeln')->with('<info>Theme "Len/Butterflies" created</info>');
+
+        $this->command->run($this->mockInput, $this->mockOutput);
+    }
 }
